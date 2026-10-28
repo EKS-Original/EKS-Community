@@ -85,7 +85,7 @@
             border-radius: 6px;
             border: 1px solid #dc2626;
         }
-    </dvi>
+    </style>
 </head>
 <body>
 
@@ -98,7 +98,7 @@
     </div>
 
     <script>
-        // သင်ထုတ်ပေးထားတဲ့ သို့မဟုတ် ရောင်းထားတဲ့ Member Codes စာရင်း
+        // သင့်ရဲ့ Member Codes များကို ဒီထဲမှာ ထည့်ပေးပါ
         const validCodes = ["EKS-12345", "EKS-99999", "EKS-77777", "EKS-2026A"];
 
         function verifyCode() {
@@ -112,7 +112,6 @@
 
             if (validCodes.includes(input)) {
                 resultDiv.innerHTML = "<div class='success'>🎉 You are EKS Member!</div>";
-                // ဒီနေရာမှာ Member ဖြစ်သွားရင် ပွင့်လာမယ့် Features သို့မဟုတ် Download Link တွေ ထည့်လို့ရပါတယ်
             } else {
                 resultDiv.innerHTML = "<div class='error'>❌ Invalid Code! မှားယွင်းနေပါသည်။</div>";
             }
