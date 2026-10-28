@@ -12,20 +12,21 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
         }
         .card {
             background: #1e293b;
-            padding: 35px;
+            padding: 30px;
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-            width: 350px;
+            width: 400px;
             text-align: center;
             border: 1px solid #334155;
+            margin: 20px;
         }
         h2 {
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             color: #38bdf8;
         }
         p {
@@ -67,9 +68,8 @@
         }
         #result {
             margin-top: 20px;
-            font-weight: bold;
-            font-size: 16px;
-            min-height: 24px;
+            font-size: 14px;
+            text-align: left;
         }
         .success {
             color: #22c55e;
@@ -77,6 +77,10 @@
             padding: 10px;
             border-radius: 6px;
             border: 1px solid #059669;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 15px;
         }
         .error {
             color: #ef4444;
@@ -84,6 +88,32 @@
             padding: 10px;
             border-radius: 6px;
             border: 1px solid #dc2626;
+            text-align: center;
+            font-weight: bold;
+        }
+        .benefits-box {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+        .benefits-box h4 {
+            color: #38bdf8;
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 15px;
+        }
+        .benefits-box ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #cbd5e1;
+            font-size: 13px;
+        }
+        .benefits-box li {
+            margin-bottom: 6px;
+            line-height: 1.4;
         }
     </style>
 </head>
@@ -98,8 +128,19 @@
     </div>
 
     <script>
-        // သင့်ရဲ့ Member Codes များကို ဒီထဲမှာ ထည့်ပေးပါ
-        const validCodes = ["EKS-12345", "EKS-99999", "EKS-77777", "EKS-2026A"];
+        // Valid Codes ၁၀၀ စာရင်း
+        const validCodes = [
+            "EKS-10294", "EKS-84192", "EKS-52631", "EKS-73901", "EKS-31948", "EKS-94821", "EKS-61205", "EKS-40592", "EKS-28491", "EKS-75931",
+            "EKS-49201", "EKS-61928", "EKS-30485", "EKS-92814", "EKS-17493", "EKS-83921", "EKS-50293", "EKS-71829", "EKS-39401", "EKS-62849",
+            "EKS-81024", "EKS-14923", "EKS-57391", "EKS-90342", "EKS-23910", "EKS-67812", "EKS-41092", "EKS-89234", "EKS-32104", "EKS-70583",
+            "EKS-19283", "EKS-54812", "EKS-93021", "EKS-20491", "EKS-78123", "EKS-46912", "EKS-61029", "EKS-85310", "EKS-39421", "EKS-71204",
+            "EKS-28190", "EKS-63912", "EKS-90182", "EKS-47310", "EKS-15829", "EKS-82910", "EKS-51923", "EKS-74821", "EKS-30912", "EKS-68124",
+            "EKS-41293", "EKS-89312", "EKS-12049", "EKS-67912", "EKS-34910", "EKS-95821", "EKS-21049", "EKS-76312", "EKS-50912", "EKS-83410",
+            "EKS-19824", "EKS-62091", "EKS-47812", "EKS-93120", "EKS-28410", "EKS-71592", "EKS-39021", "EKS-85124", "EKS-60412", "EKS-14892",
+            "EKS-72910", "EKS-38192", "EKS-59201", "EKS-90412", "EKS-23104", "EKS-67891", "EKS-41209", "EKS-85921", "EKS-30192", "EKS-76241",
+            "EKS-19342", "EKS-52810", "EKS-89104", "EKS-34210", "EKS-67129", "EKS-20591", "EKS-78412", "EKS-49310", "EKS-12891", "EKS-65921",
+            "EKS-31024", "EKS-87912", "EKS-54210", "EKS-90312", "EKS-21890", "EKS-63921", "EKS-47102", "EKS-82491", "EKS-35912", "EKS-79104"
+        ];
 
         function verifyCode() {
             const input = document.getElementById('memberCode').value.trim();
@@ -111,7 +152,20 @@
             }
 
             if (validCodes.includes(input)) {
-                resultDiv.innerHTML = "<div class='success'>🎉 You are EKS Member!</div>";
+                resultDiv.innerHTML = `
+                    <div class='success'>🎉 You are EKS Member!</div>
+                    <div class='benefits-box'>
+                        <h4>🎁 Your Member Benefits:</h4>
+                        <ul>
+                            <li>EKS Products အားလုံးဝယ်ယူမယ်ဆိုရင် <strong>60% Off</strong></li>
+                            <li>EKS Product တစ်ခုကို <strong>30% off</strong> တစ်ခါအသုံးပြုခွင့်</li>
+                            <li>EKS Product တစ်ခုကို <strong>20% off</strong> တစ်ခါအသုံးပြုခွင့်</li>
+                            <li>EKS Product တစ်ခုကို <strong>10% off</strong> နှစ်ခါအသုံးပြုခွင့်</li>
+                            <li>EKS Android Applications နဲ့ Web App များကို <strong>Free အသုံးပြုခွင့်</strong></li>
+                            <li>စာအုပ်တွေ၊ အကျီတွေ ဝယ်ယူရင် <strong>Deli Free</strong> ရခွင့်</li>
+                        </ul>
+                    </div>
+                `;
             } else {
                 resultDiv.innerHTML = "<div class='error'>❌ Invalid Code! မှားယွင်းနေပါသည်။</div>";
             }
